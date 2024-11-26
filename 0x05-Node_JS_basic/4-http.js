@@ -2,7 +2,9 @@ const http = require('http');
 
 const PORT = 1245;
 
-const app = http.createServer((req, res) => {
+const app = http.createServer();
+
+app.on('request', (req, res) => {
   res.write(Buffer.from('Hello Holberton School!'));
   res.end();
 });
