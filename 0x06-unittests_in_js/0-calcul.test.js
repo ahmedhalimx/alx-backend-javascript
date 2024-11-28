@@ -2,36 +2,36 @@ const assert = require('assert');
 
 const calculateNumber = require("./0-calcul.js");
 
-describe("calculateNumber()", () => {
-	it('floating point whole numbers', () => {
+describe("Launching TestSuite for ./0-calcul.js", () => {
+	it('1/8: Floating point whole numbers', () => {
 		assert.strictEqual(calculateNumber(1.0, 2.0), 3);
 	});
 
-	it('rounding down b\'s floating point fractional number', () => {
+	it('2/8: Rounding down b\' only', () => {
 		assert.strictEqual(calculateNumber(1.0, 2.4), 3);
 	});
 
-	it('rounding down a and b\'s floating point fractional number', () => {
+	it('3/8: Rounding down a and b', () => {
 		assert.strictEqual(calculateNumber(1.4, 2.4), 3);
 	});
 
-	it('rounding down a\'s floating point fractional number', () => {
+	it('4/8: Rounding down a only', () => {
 		assert.strictEqual(calculateNumber(1.4, 2.0), 3);
 	});
 
-	it('rounding up b\'s floating point fractional numbers', () => {
+	it('5/8: Rounding up b', () => {
 		assert.strictEqual(calculateNumber(1.0, 2.5), 4);
 	});
 
-	it('rounding up a and b\'s floating point fractional numbers', () => {
+	it('6/8: Rounding up a and b', () => {
 		assert.strictEqual(calculateNumber(2.6, 2.5), 6);
 	});
 
-	it('rounding up a\'s floating point fractional numbers', () => {
+	it('7/8: Rounding up a only', () => {
 		assert.strictEqual(calculateNumber(2.6, 2.0), 5);
 	});
 
-	it('rounding down a and b floating point fractional numbers with trailing 9\'s', () => {
-		assert.strictEqual(calculateNumber(2.499999, 3.499999), 5);
+	it('8/8: Rounding down a and b with trailing digits\'s', () => {
+		assert.strictEqual(calculateNumber(815.431329, 123.14952529), 938);
 	});
 });
