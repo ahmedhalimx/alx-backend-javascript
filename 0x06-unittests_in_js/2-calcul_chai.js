@@ -1,4 +1,4 @@
-export default function calculateNumber(type, a, b) {
+module.exports = function calculateNumber(type, a, b) {
 	let rA = Math.round(a);
 	let rB = Math.round(b);
 	let result = 0;
@@ -15,6 +15,5 @@ export default function calculateNumber(type, a, b) {
 			break;
 
 	}
-
 	return result;
 };

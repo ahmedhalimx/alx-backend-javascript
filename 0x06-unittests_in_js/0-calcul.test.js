@@ -1,5 +1,5 @@
-import assert from 'node:assert';
-import calculateNumber from './0-calcul.js';
+const assert = require('node:assert');
+const calculateNumber = require('./0-calcul.js');
 
 describe("Launching TestSuite for ./0-calcul.js", () => {
 	it('1/8: Floating point whole numbers', () => {

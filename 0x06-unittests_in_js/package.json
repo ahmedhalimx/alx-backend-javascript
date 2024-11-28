@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Testing using mocha FW and chai assertion",
   "main": "0.calcul.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "test": "mocha"
   },

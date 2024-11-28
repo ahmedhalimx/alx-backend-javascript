@@ -1,5 +1,5 @@
-import assert from 'node:assert';
-import calculateNumber from './1-calcul.js';
+const assert = require('node:assert');
+const calculateNumber = require('./1-calcul.js');
 
 describe('Launching TestSuite for ./1-calcul.js', () => {
 	describe('1/3: Addition TestSuite::', () => {
