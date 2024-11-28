@@ -1,6 +1,7 @@
 const assert = require('node:assert');
 const calculateNumber = require('./0-calcul.js');
 
+
 describe("Launching TestSuite for ./0-calcul.js", () => {
 	it('1/8: Floating point whole numbers', () => {
 		assert.strictEqual(calculateNumber(1.0, 2.0), 3);
