@@ -1,5 +1,6 @@
-const assert = require('node:assert');
+const assert = require('assert');
 const calculateNumber = require('./1-calcul.js');
+
 
 describe('Launching TestSuite for ./1-calcul.js', () => {
 	describe('1/3: Addition TestSuite::', () => {
