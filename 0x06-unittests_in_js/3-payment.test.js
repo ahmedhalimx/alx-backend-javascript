@@ -9,6 +9,7 @@ describe('Testin the API using Spies', () => {
 
 		sendPaymentRequestToApi(100, 20);
 
-		return expect(funcSpy.calculateNumber.calledWith('SUM', 100, 20)).to.be.true;
+		expect(funcSpy.calculateNumber.calledWith('SUM', 100, 20)).to.be.true;
+		funcSpy.restore();
 	})
 })
