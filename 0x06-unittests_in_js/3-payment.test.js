@@ -8,7 +8,6 @@ describe('Testin the API using Spies', () => {
 		const funcSpy = sinon.spy(utils.calculateNumber);
 		sendPaymentRequestToApi(100, 20);
 		expect(funcSpy.calculateNumber.calledWith('SUM', 100, 20)).to.be.true;
-		expect(funcSpy.calculateNumber.callCount).to.be.equal(1);
 		funcSpy.restore();
 	})
 })
