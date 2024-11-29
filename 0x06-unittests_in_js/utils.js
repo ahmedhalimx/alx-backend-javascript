@@ -20,4 +20,4 @@ const Utils = {
 	}
 };
 
-module.exports.calculateNumber = this.calculateNumber;
+module.exports = Utils;
