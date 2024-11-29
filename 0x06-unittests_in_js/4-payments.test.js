@@ -3,8 +3,8 @@ const utils = require('./utils.js');
 const expect = require('chai').expect;
 const sendPaymentRequestToApi = require('./3-payment');
 
-describe('Testin the API using Spies', () => {
-	it('API uses the sendPaymentRequestToApi utility', () => {
+describe('Testing the Utils Object using a Stub and a Spy', () => {
+	it('API returns 10 when given ("SUM", 100, 20)', () => {
 		const aStub = sinon.stub(utils, 'calculateNumber').returns(10);
 		const aSpy = sinon.spy(console, 'log');
 
