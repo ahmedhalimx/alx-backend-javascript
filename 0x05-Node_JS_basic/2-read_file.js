@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('node:fs');
 
 const FIRSTNAME_COLUMN = 0;
 const FIELD_COLUMN = 3;
@@ -8,35 +8,34 @@ const FIELD_COLUMN = 3;
  * @param {String} filePath The path to the CSV data file.
  */
 const countStudents = (filePath) => {
-  fs.readFile(filePath, 'utf-8', (err, data) => {
-    if (err) {
-      throw new Error('Cannot load the database');
-    }
-    const studentFields = {};
-    const recordList = data.trim().split('\n');
-    recordList.shift();
+  if (!fs.existsSync(filePath) || !fs.statSync(filePath).isFile) {
+    throw new Error('Cannot load the database');
+  }
 
-    console.log(`Number of students: ${recordList.length}`);
-    for (const record of recordList) {
-      const firstName = record.split(',')[FIRSTNAME_COLUMN];
-      const field = record.split(',')[FIELD_COLUMN];
+  const studentFields = {};
+  const recordList = fs.readFileSync(filePath, 'utf-8').trim().split('\n');
 
-      if (studentFields[field] === undefined) {
-        studentFields[field] = [firstName];
-      } else {
-        studentFields[field].push(firstName);
-      }
-    }
+  recordList.shift();
+  console.log(`Number of students: ${recordList.length}`);
+  for (const record of recordList) {
+    const firstName = record.split(',')[FIRSTNAME_COLUMN];
+    const field = record.split(',')[FIELD_COLUMN];
 
-    for (const [field, firstNames] of Object.entries(studentFields)) {
-      process.stdout.write(`Number of students in ${field}: ${firstNames.length}. List:`);
-      for (let i = 0; i < firstNames.length; i += 1) {
-        process.stdout.write(` ${firstNames[i]}`);
-        if (i !== firstNames.length - 1) { process.stdout.write(','); }
-      }
-      process.stdout.write('\n');
+    if (studentFields[field] === undefined) {
+      studentFields[field] = [firstName];
+    } else {
+      studentFields[field].push(firstName);
     }
-  });
+  }
+
+  for (const [field, firstNames] of Object.entries(studentFields)) {
+    process.stdout.write(`Number of students in ${field}: ${firstNames.length}. List:`);
+    for (let i = 0; i < firstNames.length; i += 1) {
+      process.stdout.write(` ${firstNames[i]}`);
+      if (i !== firstNames.length - 1) { process.stdout.write(','); }
+    }
+    process.stdout.write('\n');
+  }
 };
 
 module.exports = countStudents;

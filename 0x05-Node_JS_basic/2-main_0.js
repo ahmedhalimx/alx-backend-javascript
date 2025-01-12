@@ -1,3 +1,5 @@
 const countStudents = require('./2-read_file');
+const kosomalx = require('./kosomenalx');
 
-countStudents('database.csv');
+kosomalx('./database.csv');
+countStudents('./database.csv');
