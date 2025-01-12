@@ -13,10 +13,9 @@ const countStudents = (filePath) => {
   }
 
   const studentFields = {};
-  const recordList = fs.readFileSync(filePath, 'utf-8').trim().split('\n');
-
+  const recordList = fs.readFileSync(filePath, 'utf-8').toString('utf-8').trim().split('\n');
   recordList.shift();
-  console.log(`Number of students: ${recordList.length}`);
+  process.stdout.write(`Number of students: ${recordList.length}`);
   for (const record of recordList) {
     const firstName = record.split(',')[FIRSTNAME_COLUMN];
     const field = record.split(',')[FIELD_COLUMN];
@@ -29,12 +28,12 @@ const countStudents = (filePath) => {
   }
 
   for (const [field, firstNames] of Object.entries(studentFields)) {
-    console.log(`Number of students in ${field}: ${firstNames.length}. List:`);
+    process.stdout.write(`Number of students in ${field}: ${firstNames.length}. List:`);
     for (let i = 0; i < firstNames.length; i += 1) {
-      console.log(` ${firstNames[i]}`);
-      if (i !== firstNames.length - 1) { console.log(','); }
+      process.stdout.write(` ${firstNames[i]}`);
+      if (i !== firstNames.length - 1) { process.stdout.write(','); }
     }
-    console.log('\n');
+    process.stdout.write('\n');
   }
 };
 
