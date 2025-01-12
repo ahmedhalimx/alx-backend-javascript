@@ -29,12 +29,12 @@ const countStudents = (filePath) => {
   }
 
   for (const [field, firstNames] of Object.entries(studentFields)) {
-    process.stdout.write(`Number of students in ${field}: ${firstNames.length}. List:`);
+    console.log(`Number of students in ${field}: ${firstNames.length}. List:`);
     for (let i = 0; i < firstNames.length; i += 1) {
-      process.stdout.write(` ${firstNames[i]}`);
-      if (i !== firstNames.length - 1) { process.stdout.write(','); }
+      console.log(` ${firstNames[i]}`);
+      if (i !== firstNames.length - 1) { console.log(','); }
     }
-    process.stdout.write('\n');
+    console.log('\n');
   }
 };
 
